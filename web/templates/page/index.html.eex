@@ -1,35 +1,29 @@
 <div class="jumbotron">
-  <h2>Welcome to Phoenix!</h2>
+  <h2>Care Cost Manager</h2>
   <p class="lead">A productive web framework that<br />does not compromise speed and maintainability.</p>
 </div>
 
 <div class="row marketing">
-  <div class="col-lg-6">
-    <h4>Resources</h4>
+  <div class="col-lg-8">
+    <h4>Add/Edit Data</h4>
     <ul>
       <li>
-        <a href="http://phoenixframework.org/docs/overview">Guides</a>
+        <a href="<%= resident_path  @conn, :index %>">Residents</a>
       </li>
       <li>
-        <a href="http://hexdocs.pm/phoenix">Docs</a>
+        <a href="<%= location_path  @conn, :index %>">Locations</a>
       </li>
       <li>
-        <a href="https://github.com/phoenixframework/phoenix">Source</a>
-      </li>
-    </ul>
-  </div>
-
-  <div class="col-lg-6">
-    <h4>Help</h4>
-    <ul>
-      <li>
-        <a href="http://groups.google.com/group/phoenix-talk">Mailing list</a>
+        <a href="<%= product_path  @conn, :index %>">Products</a>
       </li>
       <li>
-        <a href="http://webchat.freenode.net/?channels=elixir-lang">#elixir-lang on freenode IRC</a>
+        <a href="<%= budget_path  @conn, :index %>">Budgets</a>
       </li>
       <li>
-        <a href="https://twitter.com/elixirphoenix">@elixirphoenix</a>
+        <a href="<%= stock_path  @conn, :index %>">Stocks</a>
+      </li>
+      <li>
+        <a href="<%= planned_usage_path  @conn, :index %>">Planned Usage</a>
       </li>
     </ul>
   </div>
