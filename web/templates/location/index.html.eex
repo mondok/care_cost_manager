@@ -1,0 +1,32 @@
+<h2>Listing locations</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Building</th>
+      <th>Domain</th>
+      <th>Wing unit</th>
+      <th>Room number</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for location <- @locations do %>
+    <tr>
+      <td><%= location.building %></td>
+      <td><%= location.domain %></td>
+      <td><%= location.wing_unit %></td>
+      <td><%= location.room_number %></td>
+
+      <td class="text-right">
+        <%= link "Show", to: location_path(@conn, :show, location), class: "btn btn-default btn-xs" %>
+        <%= link "Edit", to: location_path(@conn, :edit, location), class: "btn btn-default btn-xs" %>
+        <%= link "Delete", to: location_path(@conn, :delete, location), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<%= link "New location", to: location_path(@conn, :new) %>

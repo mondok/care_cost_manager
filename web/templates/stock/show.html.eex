@@ -1,0 +1,38 @@
+<h2>Show stock</h2>
+
+<ul>
+
+  <li>
+    <strong>Room number:</strong>
+    <%= @stock.room_number %>
+  </li>
+
+  <li>
+    <strong>Product:</strong>
+    <%= @stock.product_id %>
+  </li>
+
+  <li>
+    <strong>Resident:</strong>
+    <%= @stock.resident_id %>
+  </li>
+
+  <li>
+    <strong>Description:</strong>
+    <%= @stock.description %>
+  </li>
+
+  <li>
+    <strong>Size:</strong>
+    <%= @stock.size %>
+  </li>
+
+  <li>
+    <strong>Shift:</strong>
+    <%= @stock.shift %>
+  </li>
+
+</ul>
+
+<%= link "Edit", to: stock_path(@conn, :edit, @stock) %>
+<%= link "Back", to: stock_path(@conn, :index) %>

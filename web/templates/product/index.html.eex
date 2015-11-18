@@ -1,0 +1,36 @@
+<h2>Listing products</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th>Category</th>
+      <th>Sub category</th>
+      <th>Manufacturer</th>
+      <th>Size</th>
+      <th>Case count</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for product <- @products do %>
+    <tr>
+      <td><%= product.description %></td>
+      <td><%= product.category %></td>
+      <td><%= product.sub_category %></td>
+      <td><%= product.manufacturer %></td>
+      <td><%= product.size %></td>
+      <td><%= product.case_count %></td>
+
+      <td class="text-right">
+        <%= link "Show", to: product_path(@conn, :show, product), class: "btn btn-default btn-xs" %>
+        <%= link "Edit", to: product_path(@conn, :edit, product), class: "btn btn-default btn-xs" %>
+        <%= link "Delete", to: product_path(@conn, :delete, product), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<%= link "New product", to: product_path(@conn, :new) %>

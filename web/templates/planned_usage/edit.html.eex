@@ -1,0 +1,6 @@
+<h2>Edit planned usage</h2>
+
+<%= render "form.html", changeset: @changeset,
+                        action: planned_usage_path(@conn, :update, @planned_usage) %>
+
+<%= link "Back", to: planned_usage_path(@conn, :index) %>

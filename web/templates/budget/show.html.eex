@@ -1,0 +1,28 @@
+<h2>Show budget</h2>
+
+<ul>
+
+  <li>
+    <strong>Year:</strong>
+    <%= @budget.year %>
+  </li>
+
+  <li>
+    <strong>Month:</strong>
+    <%= @budget.month %>
+  </li>
+
+  <li>
+    <strong>Location:</strong>
+    <%= @budget.location %>
+  </li>
+
+  <li>
+    <strong>Annual dollars:</strong>
+    <%= @budget.annual_dollars %>
+  </li>
+
+</ul>
+
+<%= link "Edit", to: budget_path(@conn, :edit, @budget) %>
+<%= link "Back", to: budget_path(@conn, :index) %>

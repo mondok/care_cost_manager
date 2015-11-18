@@ -1,0 +1,30 @@
+<h2>Listing residents</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>Room number</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for resident <- @residents do %>
+    <tr>
+      <td><%= resident.first_name %></td>
+      <td><%= resident.last_name %></td>
+      <td><%= resident.room_number %></td>
+
+      <td class="text-right">
+        <%= link "Show", to: resident_path(@conn, :show, resident), class: "btn btn-default btn-xs" %>
+        <%= link "Edit", to: resident_path(@conn, :edit, resident), class: "btn btn-default btn-xs" %>
+        <%= link "Delete", to: resident_path(@conn, :delete, resident), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<%= link "New resident", to: resident_path(@conn, :new) %>

@@ -1,0 +1,38 @@
+<h2>Show planned usage</h2>
+
+<ul>
+
+  <li>
+    <strong>Resident:</strong>
+    <%= @planned_usage.resident_id %>
+  </li>
+
+  <li>
+    <strong>Product:</strong>
+    <%= @planned_usage.product_id %>
+  </li>
+
+  <li>
+    <strong>Size:</strong>
+    <%= @planned_usage.size %>
+  </li>
+
+  <li>
+    <strong>Shift:</strong>
+    <%= @planned_usage.shift %>
+  </li>
+
+  <li>
+    <strong>Usage:</strong>
+    <%= @planned_usage.usage %>
+  </li>
+
+  <li>
+    <strong>Transaction date:</strong>
+    <%= @planned_usage.transaction_date %>
+  </li>
+
+</ul>
+
+<%= link "Edit", to: planned_usage_path(@conn, :edit, @planned_usage) %>
+<%= link "Back", to: planned_usage_path(@conn, :index) %>

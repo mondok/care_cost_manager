@@ -1,0 +1,6 @@
+<h2>New resident</h2>
+
+<%= render "form.html", changeset: @changeset,
+                        action: resident_path(@conn, :create) %>
+
+<%= link "Back", to: resident_path(@conn, :index) %>

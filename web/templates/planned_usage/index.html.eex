@@ -1,0 +1,36 @@
+<h2>Listing planned usages</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Resident</th>
+      <th>Product</th>
+      <th>Size</th>
+      <th>Shift</th>
+      <th>Usage</th>
+      <th>Transaction date</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for planned_usage <- @planned_usages do %>
+    <tr>
+      <td><%= planned_usage.resident_id %></td>
+      <td><%= planned_usage.product_id %></td>
+      <td><%= planned_usage.size %></td>
+      <td><%= planned_usage.shift %></td>
+      <td><%= planned_usage.usage %></td>
+      <td><%= planned_usage.transaction_date %></td>
+
+      <td class="text-right">
+        <%= link "Show", to: planned_usage_path(@conn, :show, planned_usage), class: "btn btn-default btn-xs" %>
+        <%= link "Edit", to: planned_usage_path(@conn, :edit, planned_usage), class: "btn btn-default btn-xs" %>
+        <%= link "Delete", to: planned_usage_path(@conn, :delete, planned_usage), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<%= link "New planned usage", to: planned_usage_path(@conn, :new) %>

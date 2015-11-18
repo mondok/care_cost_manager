@@ -17,6 +17,13 @@ defmodule CareCostManager.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
+
+    resources "/residents", ResidentController
+    resources "/locations", LocationController
+    resources "/products", ProductController
+    resources "/budgets", BudgetController
+    resources "/stocks", StockController
+    resources "/planned_usages", PlannedUsageController
   end
 
   # Other scopes may use custom stacks.

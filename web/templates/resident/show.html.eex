@@ -1,0 +1,23 @@
+<h2>Show resident</h2>
+
+<ul>
+
+  <li>
+    <strong>First name:</strong>
+    <%= @resident.first_name %>
+  </li>
+
+  <li>
+    <strong>Last name:</strong>
+    <%= @resident.last_name %>
+  </li>
+
+  <li>
+    <strong>Room number:</strong>
+    <%= @resident.room_number %>
+  </li>
+
+</ul>
+
+<%= link "Edit", to: resident_path(@conn, :edit, @resident) %>
+<%= link "Back", to: resident_path(@conn, :index) %>
