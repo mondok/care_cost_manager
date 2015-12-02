@@ -14,10 +14,33 @@
   <body>
     <div class="container" role="main">
       <div class="header">
-        <ul class="nav nav-pills pull-right">
-          <li><a href="http://www.phoenixframework.org/docs">Get Started</a></li>
+        <a href="/">
+          <span class="logo"></span>
+        </a>
+        <ul class="nav nav-pills">
+          <li>
+            <a href="#">Dashboard</a>
+          </li>
+          <li>
+            <li><a href="<%= budget_path @conn, :index %>">Budget</a></li>
+          </li>
+          <li>
+            <a href="<%= planned_usage_path  @conn, :index %>">Planned Usage</a>
+          </li>
+          <li>
+            <a href="<%= stock_path  @conn, :index %>">Process Stocking</a>
+          </li>
+          <li>
+            <a href="#">Enter Usage</a>
+          </li>
+          <li>
+            <a href="#">Maintenance</a>
+          </li>
+          <li>
+          <a href="#">Reports</a></li>
+          <li class="pull-right"><a href="#">Help</a></li>
+          <li class="pull-right"><a href="#">mmondok</a></li>
         </ul>
-        <span class="logo"></span>
       </div>
 
       <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
