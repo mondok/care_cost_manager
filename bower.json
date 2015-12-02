@@ -1,0 +1,22 @@
+{
+  "name": "care_cost_manager",
+  "version": "0.0.0",
+  "homepage": "https://github.com/mondok/care_cost_manager",
+  "authors": [
+    "Matt Mondok <matt.mondok@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.6"
+  },
+  "moduleType": [
+    "es6"
+  ]
+}
