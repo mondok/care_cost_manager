@@ -19,7 +19,7 @@
         </a>
         <ul class="nav nav-pills">
           <li>
-            <a href="#">Dashboard</a>
+            <a href="<%= dashboard_path @conn, :index %>">Dashboard</a>
           </li>
           <li role="presentation" class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
@@ -81,7 +81,7 @@
               <li><a href="#">Product Forecast by Type</a></li>
               <li><a href="#">Product Usage Control</a></li>
             </ul>
-          </li>          
+          </li>
 
           <li class="pull-right"><a href="#">Help</a></li>
           <li class="pull-right"><a href="#">mmondok</a></li>
