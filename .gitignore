@@ -10,7 +10,6 @@ erl_crash.dump
 .DS_Store
 # Static artifacts
 /node_modules
-/bower_components
 
 # Since we are building assets from web/static,
 # we ignore priv/static. You may want to comment
