@@ -2,13 +2,13 @@
 <div class="row">
   <div class="col-md-6">
     <div style="width: 90%">
-      <h3>Shipments</h3>
+      <h3>PPD Development (Absorbent Incontinence)</h3>
       <canvas id="canvas" height="450" width="600"></canvas>
     </div>
   </div>
   <div class="col-md-6">
     <div style="width: 90%">
-      <h3>Activities</h3>
+      <h3>PPD</h3>
       <canvas id="canvas2" height="450" width="600"></canvas>
     </div>
   </div>
@@ -16,13 +16,13 @@
 <div class="row">
   <div class="col-md-6">
     <div style="width: 90%">
-      <h3>Stock</h3>
+      <h3>CarePlan vs. In-room Stocking vs. Purchased vs. Actual</h3>
       <canvas id="canvas3" height="450" width="600"></canvas>
     </div>
   </div>
   <div class="col-md-6">
     <div style="width: 90%">
-      <h3>Backorders</h3>
+      <h3>Product Mix - Care Plan</h3>
       <canvas id="canvas4" height="450" width="600"></canvas>
     </div>
   </div>
