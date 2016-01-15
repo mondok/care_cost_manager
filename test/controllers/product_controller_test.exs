@@ -12,7 +12,7 @@ defmodule CareCostManager.ProductControllerTest do
 
   test "lists all entries on index", %{conn: conn} do
     conn = get conn, product_path(conn, :index)
-    assert html_response(conn, 200) =~ "Listing products"
+    assert html_response(conn, 200) =~ "Products"
   end
 
   test "renders form for new resources", %{conn: conn} do

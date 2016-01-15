@@ -12,7 +12,7 @@ defmodule CareCostManager.PlannedUsageControllerTest do
 
   test "lists all entries on index", %{conn: conn} do
     conn = get conn, planned_usage_path(conn, :index)
-    assert html_response(conn, 200) =~ "Listing planned usages"
+    assert html_response(conn, 200) =~ "Planned Usages"
   end
 
   test "renders form for new resources", %{conn: conn} do

@@ -1,4 +1,5 @@
-<h2>Care Cost Dashboard</h2>
+<h2>Care Spend Dashboard</h2>
+<hr>
 <div class="row">
   <div class="col-md-6">
     <div style="width: 90%">
@@ -8,22 +9,36 @@
   </div>
   <div class="col-md-6">
     <div style="width: 90%">
-      <h3>PPD</h3>
-      <canvas id="canvas2" height="450" width="600"></canvas>
+      <h3>CarePlan vs. In-room Stocking vs. Purchased vs. Actual</h3>
+      <canvas id="canvas3" height="450" width="600"></canvas>
     </div>
   </div>
 </div>
 <div class="row">
   <div class="col-md-6">
     <div style="width: 90%">
-      <h3>CarePlan vs. In-room Stocking vs. Purchased vs. Actual</h3>
-      <canvas id="canvas3" height="450" width="600"></canvas>
+      <h3>Size Mix - Care Plan</h3>
+      <canvas id="canvas2" height="450" width="600"></canvas>
     </div>
   </div>
   <div class="col-md-6">
     <div style="width: 90%">
-      <h3>Product Mix - Care Plan</h3>
+      <h3>Size Mix - Actual</h3>
+      <canvas id="canvas6" height="450" width="600"></canvas>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6">
+    <div style="width: 90%">
+      <h3>Product Mix: Care Plan</h3>
       <canvas id="canvas4" height="450" width="600"></canvas>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <h3>Product Mix: Actual</h3>
+    <div style="width: 90%">
+      <canvas id="canvas5" height="450" width="600"></canvas>
     </div>
   </div>
 </div>
@@ -34,107 +49,186 @@
 
 
 <script>
-var randomScalingFactor = function(){ return Math.round(Math.random()*100)};
+var randomScalingFactor = function(){ return Math.random() * 2};
+var randomMoneyFactor = function(){ return Math.round(Math.random() * 3000)};
 var barChartData = {
-  labels : ["January","February","March","April","May","June","July"],
+  labels: ["Nov", "Dec", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct"],
   datasets : [
     {
-      fillColor : "rgba(220,220,220,0.5)",
-      strokeColor : "rgba(220,220,220,0.8)",
-      highlightFill: "rgba(220,220,220,0.75)",
-      highlightStroke: "rgba(220,220,220,1)",
-      data : [randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor()]
+      label: "Care Plan",
+      fillColor: "rgba(151,187,205,0.2)",
+      strokeColor: "rgba(151,187,205,1)",
+      pointColor: "rgba(151,187,205,1)",
+      pointStrokeColor: "#fff",
+      pointHighlightFill: "#fff",
+      pointHighlightStroke: "rgba(151,187,205,1)",
+      data : [randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor()]
     },
     {
-      fillColor : "rgba(151,187,205,0.5)",
-      strokeColor : "rgba(151,187,205,0.8)",
-      highlightFill : "rgba(151,187,205,0.75)",
-      highlightStroke : "rgba(151,187,205,1)",
-      data : [randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor()]
+      label: "Purchased",
+      fillColor: "rgba(151,187,205,0.2)",
+      strokeColor: "rgba(151,187,205,1)",
+      pointColor: "rgba(151,187,205,1)",
+      pointStrokeColor: "#fff",
+      pointHighlightFill: "#fff",
+      pointHighlightStroke: "rgba(151,187,205,1)",
+      data : [randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor()]
+    },
+    {
+      label: "Budget",
+      fillColor: "rgba(220,220,220,0.2)",
+      strokeColor: "rgba(220,220,220,1)",
+      pointColor: "rgba(220,220,220,1)",
+      pointStrokeColor: "#fff",
+      pointHighlightFill: "#fff",
+      pointHighlightStroke: "rgba(220,220,220,1)",
+      data : [randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor()]
     }
   ]
 }
 
 var lineData = {
-    labels: ["January", "February", "March", "April", "May", "June", "July"],
+    labels: ["Nov", "Dec", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct"],
     datasets: [
         {
-            label: "My First dataset",
+            label: "In-room Stocking",
             fillColor: "rgba(220,220,220,0.2)",
             strokeColor: "rgba(220,220,220,1)",
             pointColor: "rgba(220,220,220,1)",
             pointStrokeColor: "#fff",
             pointHighlightFill: "#fff",
             pointHighlightStroke: "rgba(220,220,220,1)",
-            data: [65, 59, 80, 81, 56, 55, 40]
+            data : [randomMoneyFactor(),randomMoneyFactor(),randomMoneyFactor(),randomMoneyFactor(),randomMoneyFactor(),randomMoneyFactor(),randomMoneyFactor(),randomMoneyFactor(),randomMoneyFactor(),randomMoneyFactor(),randomMoneyFactor(),randomMoneyFactor()]
         },
         {
-            label: "My Second dataset",
+            label: "Purchased",
             fillColor: "rgba(151,187,205,0.2)",
             strokeColor: "rgba(151,187,205,1)",
             pointColor: "rgba(151,187,205,1)",
             pointStrokeColor: "#fff",
             pointHighlightFill: "#fff",
             pointHighlightStroke: "rgba(151,187,205,1)",
-            data: [28, 48, 40, 19, 86, 27, 90]
+            data : [randomMoneyFactor(),randomMoneyFactor(),randomMoneyFactor(),randomMoneyFactor(),randomMoneyFactor(),randomMoneyFactor(),randomMoneyFactor(),randomMoneyFactor(),randomMoneyFactor(),randomMoneyFactor(),randomMoneyFactor(),randomMoneyFactor()]
+        },
+        {
+            label: "Actual",
+            fillColor: "rgba(151,187,205,0.2)",
+            strokeColor: "rgba(151,187,205,1)",
+            pointColor: "rgba(151,187,205,1)",
+            pointStrokeColor: "#fff",
+            pointHighlightFill: "#fff",
+            pointHighlightStroke: "rgba(151,187,205,1)",
+            data : [randomMoneyFactor(),randomMoneyFactor(),randomMoneyFactor(),randomMoneyFactor(),randomMoneyFactor(),randomMoneyFactor(),randomMoneyFactor(),randomMoneyFactor(),randomMoneyFactor(),randomMoneyFactor(),randomMoneyFactor(),randomMoneyFactor()]
+        },
+        {
+            label: "Care Plan",
+            fillColor: "rgba(151,187,205,0.2)",
+            strokeColor: "rgba(151,187,205,1)",
+            pointColor: "rgba(151,187,205,1)",
+            pointStrokeColor: "#fff",
+            pointHighlightFill: "#fff",
+            pointHighlightStroke: "rgba(151,187,205,1)",
+            data : [randomMoneyFactor(),randomMoneyFactor(),randomMoneyFactor(),randomMoneyFactor(),randomMoneyFactor(),randomMoneyFactor(),randomMoneyFactor(),randomMoneyFactor(),randomMoneyFactor(),randomMoneyFactor(),randomMoneyFactor(),randomMoneyFactor()]
         }
     ]
 };
 
-var radarData = {
-    labels: ["Eating", "Drinking", "Sleeping", "Designing", "Coding", "Cycling", "Running"],
-    datasets: [
-        {
-            label: "My First dataset",
-            fillColor: "rgba(220,220,220,0.2)",
-            strokeColor: "rgba(220,220,220,1)",
-            pointColor: "rgba(220,220,220,1)",
-            pointStrokeColor: "#fff",
-            pointHighlightFill: "#fff",
-            pointHighlightStroke: "rgba(220,220,220,1)",
-            data: [65, 59, 90, 81, 56, 55, 40]
-        },
-        {
-            label: "My Second dataset",
-            fillColor: "rgba(151,187,205,0.2)",
-            strokeColor: "rgba(151,187,205,1)",
-            pointColor: "rgba(151,187,205,1)",
-            pointStrokeColor: "#fff",
-            pointHighlightFill: "#fff",
-            pointHighlightStroke: "rgba(151,187,205,1)",
-            data: [28, 48, 40, 19, 96, 27, 100]
-        }
-    ]
-};
+var pieData3 = [
+    {
+        value: randomScalingFactor(),
+        color:"#febf2d",
+        highlight: "#FF5A5E",
+        label: "Briefs"
+    },
+    {
+        value: randomScalingFactor(),
+        color: "#eb7d3d",
+        highlight: "#5AD3D1",
+        label: "Underwear"
+    },
+    {
+        value: randomScalingFactor(),
+        color: "#76ab4d",
+        highlight: "#FFC870",
+        label: "Pads"
+    }
+];
 
 var pieData = [
     {
-        value: 300,
-        color:"#F7464A",
+        value: randomScalingFactor(),
+        color:"#febf2d",
         highlight: "#FF5A5E",
-        label: "Red"
+        label: "Briefs"
     },
     {
-        value: 50,
-        color: "#46BFBD",
+        value: randomScalingFactor(),
+        color: "#eb7d3d",
         highlight: "#5AD3D1",
-        label: "Green"
+        label: "Underwear"
     },
     {
-        value: 100,
-        color: "#FDB45C",
+        value: randomScalingFactor(),
+        color: "#76ab4d",
         highlight: "#FFC870",
-        label: "Yellow"
+        label: "Pads"
     }
-]
+];
+
+var pieData2= [
+    {
+        value: randomScalingFactor(),
+        color:"#5d9cd5",
+        highlight: "#FF5A5E",
+        label: "S/M/R"
+    },
+    {
+        value: randomScalingFactor(),
+        color: "#a2a5af",
+        highlight: "#5AD3D1",
+        label: "L/XL"
+    },
+    {
+        value: randomScalingFactor(),
+        color: "#ea7f3c",
+        highlight: "#FFC870",
+        label: "Bariatric (2X/3X)"
+    }
+];
+
+var pieData3= [
+    {
+        value: randomScalingFactor(),
+        color:"#5d9cd5",
+        highlight: "#FF5A5E",
+        label: "S/M/R"
+    },
+    {
+        value: randomScalingFactor(),
+        color: "#a2a5af",
+        highlight: "#5AD3D1",
+        label: "L/XL"
+    },
+    {
+        value: randomScalingFactor(),
+        color: "#ea7f3c",
+        highlight: "#FFC870",
+        label: "Bariatric (2X/3X)"
+    }
+];
 window.onload = function(){
   var ctx = document.getElementById("canvas").getContext("2d");
-  window.myBar = new Chart(ctx).Bar(barChartData, {
+  window.myBar = new Chart(ctx).Line(barChartData, {
     responsive : true
   });
 
   var ctx2 = document.getElementById("canvas2").getContext("2d");
-  window.myRadar = new Chart(ctx2).Radar(radarData, {
+  window.myRadar = new Chart(ctx2).Pie(pieData2, {
+    responsive : true
+  });
+
+  var ctx6 = document.getElementById("canvas6").getContext("2d");
+  window.myRadar = new Chart(ctx6).Pie(pieData3, {
     responsive : true
   });
 
@@ -145,6 +239,11 @@ window.onload = function(){
 
   var ctx4 = document.getElementById("canvas4").getContext("2d");
   window.myPie = new Chart(ctx4).Pie(pieData, {
+    responsive : true
+  });
+
+  var ctx5 = document.getElementById("canvas5").getContext("2d");
+  window.myPie2 = new Chart(ctx5).Pie(pieData3, {
     responsive : true
   });
 

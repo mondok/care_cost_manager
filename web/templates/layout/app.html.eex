@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Care Cost Manager</title>
+    <title>Care Spend Manager</title>
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
   </head>
 
@@ -65,10 +65,10 @@
               Maintenance <span class="caret"></span>
             </a>
             <ul class="dropdown-menu">
-              <li><a href="#">Product Table</a></li>
-              <li><a href="#">Location Table</a></li>
+              <li><a href="<%= product_path  @conn, :index %>">Product Table</a></li>
+              <li><a href="<%= location_path  @conn, :index %>">Location Table</a></li>
               <li><a href="#">Users</a></li>
-              <li><a href="#">Resident Table</a></li>
+              <li><a href="<%= resident_path  @conn, :index %>">Resident Table</a></li>
             </ul>
           </li>
 
